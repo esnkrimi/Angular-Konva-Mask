@@ -1,13 +1,13 @@
 # angular-internationalization 
 angular internationalization example - i18n
 <b>internationalization by angular i18n </b><br>
-first of all install requirements:<br>
+<b>first of all install requirements:</b><br>
 
      npm install @ngx-translate/core  save
      npm install @ngx-translate/http-loader  save
      npm install @biesbjerg/ngx-translate-extract  --save-dev
      
-next import modules in app.module
+<b>next import modules in app.module</b>
 
     import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
     import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -27,7 +27,7 @@ next import modules in app.module
       }
     }    
     
-finally you should define translator files in assets/trn
+<b>finally you should define translator files in assets/trnslateFolder </b>
 
 for example - english.json
 
@@ -40,7 +40,7 @@ for example - english.json
         }
     }    
     
-you can run npm run extract for initilization files    
+<b>you can run npm run extract for initilization files    </b>
 
 
 
