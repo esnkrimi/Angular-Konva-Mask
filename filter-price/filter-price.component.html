@@ -1,0 +1,18 @@
+<div  [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" class="w-100 text-left p-2">
+  <div class="fw-bold small">
+    {{'home.price'|translate}}
+  </div> 
+  <div class="w-100">
+    <ngx-slider class="price-slider" [(value)]="value" [options]="options"></ngx-slider> 
+  </div>
+  <div  [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" *ngIf= "('home.money'|translate)==='AED'">
+  1 TO  {{(value*1000000/6800)| number:'0.0-0'}} {{'home.money'|translate}}
+  </div>
+  <div  [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" *ngIf= "('home.money'|translate)==='USD'">
+  1 TO   {{(value*1000000/25000)| number:'0.0-0'}} {{'home.money'|translate}}
+  </div>     
+  <button (click)="setPriceRange(value)" mdbBtn type="button" class="text-white bg-black p-1 small" 
+  mdbWavesEffect>
+  {{'home.filter'|translate}}        
+  </button>
+</div> 

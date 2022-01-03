@@ -1,0 +1,37 @@
+ <div class="ng-autocomplete">
+    <ng-autocomplete 
+      [class.dir-rtl]="globals.language!=='en'"
+      [placeholder]="'home.WhatDoYouNeed'|translate"
+      [heading]="found_length+' ITEM FOUND'"
+      class="ng-autocomplete"
+      [data]="content"
+      [searchKeyword]="keyword" 
+      (selected)='selectEvent($event)'
+      (inputChanged)='onChangeSearch($event)'
+      [itemTemplate]="itemTemplate"
+      [isLoading]="isLoading"
+      [notFoundTemplate]="notFoundTemplate">                                 
+    </ng-autocomplete>    
+    <ng-template #itemTemplate let-item>
+      <div class="d-flex p-1 w-100">
+        <div style="flex-basis: 30%;" >
+          <img [src]="globals.UrlHome+'/drm/users/1/'+item.do_id+'/1.jpg'" width="100%" style="height: auto;">
+        </div>
+        <div style="flex-basis: 70%;" >
+          <div>
+             <a [innerHTML]="item.fullName"></a>
+          </div>
+          <div  class="d-flex p-1 w-100" style="vertical-align: top !important;">
+            <div class="text-left text-decoration-line-through text-muted small">
+              <a [innerHTML]="item.do_price+' '+('home.money'|translate)"></a>
+            </div>
+            <div class="text-left price">
+              <a [innerHTML]="item.price_after+' '+('home.money'|translate)"></a>
+            </div>
+          </div>          
+        </div>            
+      </div> 
+    </ng-template>    
+    <ng-template #notFoundTemplate let-notFound>
+    </ng-template>    
+</div>

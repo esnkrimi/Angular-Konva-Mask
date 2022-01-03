@@ -1,0 +1,10 @@
+<div  [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" class="w-100 pb-4 text-left">
+  <div class="fw-bold small">
+ {{'home.color'|translate}}
+</div>
+<div>
+  <div  [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" class="w-100">     
+    <button *ngFor= "let item of colorList" (click)="selColor(item)" mat-mini-fab [ngStyle]="{'background-color': item}"></button>  
+  </div>
+</div>
+</div>  

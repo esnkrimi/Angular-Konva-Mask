@@ -1,0 +1,32 @@
+<div  [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" class="w-100 pb-4 text-left">
+<div>
+ <strong>
+  {{'home.signIn'|translate}}
+</strong>
+</div>    
+<div class="mt-3">
+    <div class="card-body px-lg-5 pt-0">
+        <form [formGroup]="checkoutForm"
+        (ngSubmit)="userLogin()">
+            <div class="form-group" [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" >
+              <label for="exampleInputEmail1">{{'home.email'|translate}} / {{'home.mobile'|translate}}</label>
+              <input type="email" id="email"  formControlName="email"class="form-text form-control">
+            </div>
+            <div class="form-group"  [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" >
+              <label for="exampleInputPassword1">{{'home.password'|translate}}</label>
+              <input type="email" id="pass"  formControlName="pass" class="form-text form-control">
+
+            </div>
+            <div class="text-left">
+            <button type="submit" class="bg-black text-white btn ">  {{'home.signIn'|translate}}            </button>
+            </div> 
+          </form>
+           <div *ngIf= "errorLogin" class="md-form mt-0 error text-danger"[class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" >
+            {{'home.loginFailed'|translate}} 
+            </div>
+            <div *ngIf= "allowLogin===1" class="md-form mt-0 error text-danger"[class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" >
+              {{'home.enterUsernamePassword'|translate}} 
+            </div>
+    </div>
+</div>
+</div>

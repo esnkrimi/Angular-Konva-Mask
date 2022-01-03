@@ -1,0 +1,27 @@
+<div  [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" class=" w-100 p-1 text-left">
+    <div class="fw-bold small">
+    {{'home.scentExact'|translate}}
+   </div>
+    <div   *ngFor= "let item of scent;let i=index">
+    <div  (click)="scentExactChangedFunction(item.scent)" class="d-flex p-1 w-100" *ngIf= "(i<len)">
+        <div  style="flex-basis:90%">  
+           <div [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" class="text-uppercase cursor-pointer text-left text-button">
+            {{item.scent}}
+           </div>  
+       </div>
+        <div style="flex-basis:10%" > 
+            <mat-checkbox 
+            [disabled]="true"
+            [(ngModel)]="item.scent===globals.scentExactFiltered">
+
+            </mat-checkbox>
+         </div>
+    </div> 
+    </div>
+    <p *ngIf= "len>5" class="cursor-pointer small text-center text-muted" (click)="len=5">
+        {{'home.hide'|translate}}
+    </p>
+    <p *ngIf= "len===5 && (scent.length>5)" class="cursor-pointer small text-center text-muted" (click)="len=100">
+        {{'home.show'|translate}}
+    </p>
+</div> 

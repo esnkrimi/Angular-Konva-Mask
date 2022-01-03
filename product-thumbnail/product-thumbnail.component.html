@@ -1,0 +1,81 @@
+<div *ngIf= "product" (mouseenter)="hover=!hover" (mouseleave)="hover=!hover" class="cursor-pointer">
+<div   class="sliderImgWrapper text-left bg-lazy">
+    <a *ngIf= "target =='similar'" class="text-black" target="_blank"
+    [href]="this.globals.UrlHome+'/#/product/'+product.do_id">
+    <img 
+    [alt]="product.Eservice" 
+    [title]="product.Eservice"
+    onError="src='http://burjcrown.com/drm/users/user.png'"
+    class="w-100" appLazyLoad  
+    [src]="this.globals.UrlHome+'/drm/users/'+product.user_id+'/'+product.do_id+'/1.jpg?t='">  
+    </a> 
+    <a *ngIf= "target!=='similar'" class="text-black" (click)="globals.unhyperAction='zoom'" 
+    [routerLink]="['/product', product.do_id]">
+    <img 
+    [alt]="product.Eservice"
+    [title]="product.Eservice" 
+    onError="src='http://burjcrown.com/drm/users/user.png'"
+    class="w-100" appLazyLoad  
+    [src]="this.globals.UrlHome+'/drm/users/'+product.user_id+'/'+product.do_id+'/1.jpg?t='">  
+    </a>     
+    <div class="overlay">
+        <button  (click)="addToWishList(product.do_id)" [class.text-gold]="product.wishlist_exists" mat-icon-button class="overlayImage"  color="basic">
+            <mat-icon  *ngIf= "globals.devicePc" [class.big-heart]="showType =='2d'"   [class.small-heart]="showType!=='2d'" [class.opacity-100]="product.wishlist_exists"   >favorite</mat-icon>
+            <mat-icon  *ngIf= "!globals.devicePc"  [class.big-heart]="showType!=='2d'"   [class.small-heart]="showType =='2d'" [class.opacity-100]="product.wishlist_exists"   >favorite</mat-icon>
+        </button>
+    </div>
+    <div *ngIf= " hover && chips " class="overlay-right small">
+        <mat-chip  [class.big-cretificate]="showType =='2d'" [class.small-cretificate]="showType!=='2d'"> {{product.scentGroup}}
+        </mat-chip>  
+    </div>    
+    <div *ngIf= " 
+    hover && 
+    chips && 
+    product.do_certificate<20
+    " class="overlay-bottom ">
+    <mat-chip   [class.big-cretificate]="showType =='2d'"   [class.small-cretificate]="showType!=='2d'"> {{product.do_certificate}}%
+    </mat-chip> 
+    </div>    
+    <div  *ngIf= "globals.devicePc">
+        <div *ngIf= "(product.do_certificate>=20) && product.do_certificate<=49" class="overlay-bottom">
+            <mat-chip   [class.big-cretificate]="showType =='2d'"   [class.small-cretificate]="showType!=='2d'" class="chip-lowest-certificate p-2 rounded-circle"> {{product.do_certificate}}%
+            </mat-chip> 
+        </div>    
+        <div *ngIf= "product.do_certificate>49" class="overlay-bottom">
+            <mat-chip  [class.big-cretificate]="showType =='2d'"   [class.small-cretificate]="showType!=='2d'" class="chip-highest-certificate p-2 rounded-circle"> {{product.do_certificate}}%
+            </mat-chip> 
+        </div>   
+    </div>
+
+    <div  *ngIf= "!globals.devicePc">
+    <div *ngIf= "(product.do_certificate>=20) && product.do_certificate<=49" class="overlay-bottom">
+    <mat-chip   [class.big-cretificate]="showType!=='2d'"   [class.small-cretificate]="showType =='2d'" class="chip-lowest-certificate p-2 rounded-circle"> {{product.do_certificate}}%
+    </mat-chip> 
+    </div>    
+    <div *ngIf= "product.do_certificate>49" class="overlay-bottom">
+    <mat-chip  [class.big-cretificate]="showType!=='2d'"   [class.small-cretificate]="showType =='2d'" class="chip-highest-certificate p-2 rounded-circle"> {{product.do_certificate}}%
+    </mat-chip> 
+    </div>   
+    </div> 
+</div>
+
+<div class="text-left">
+<a  class="text-black text-capitalize small" 
+(click)="globals.unhyperAction='zoom'" [routerLink]="['/product', product.do_id]">
+    {{product.brands}} {{product.Eservice}} - {{'home.for'|translate}} {{product.sex}}
+</a>
+</div>
+<div class="d-flex p-1 w-100"  [class.text-left]="globals.language =='en'" [class.text-right]="globals.language!=='en'">
+<div class="small text-decoration-line-through text-muted small" [class.text-left]="globals.language =='en'" [class.text-right]="globals.language!=='en'" >
+    <a  class="text-decoration-line-through text-muted " (click)="globals.unhyperAction='zoom'" [routerLink]="['/product', product.do_id]">
+    {{customizedMoney['price']}}    {{'home.money'|translate}}
+</a>    
+</div> 
+<div class="price small" [class.text-left]="globals.language =='en'" [class.text-right]="globals.language!=='en'">
+    &nbsp;&nbsp;
+    <a  class="text-black price" (click)="globals.unhyperAction='zoom'" [routerLink]="['/product', product.do_id]">
+    {{customizedMoney['final_price']}}    {{'home.money'|translate}}
+    </a>    
+</div>
+</div>
+</div>

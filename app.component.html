@@ -1,5 +1,18 @@
-<button (click)="changeLanguage()">{{'home.language' | translate}}</button>
-<br>
-{{'home.language' | translate}} {{'home.isSelected' | translate}} 
-<br>
-{{'home.HelloWorld' | translate}} 
+<div  class="center fixed-top" *ngIf= "globals.loadingHome">
+    <mat-progress-bar  class="app-progress-bar" [color]="'accent'" mode="indeterminate"></mat-progress-bar>
+</div>
+<div class="modal fade" id="dialog" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          {{globals.message}}
+      </div>
+      <div class="modal-footer" data-dismiss="modal">
+        <a class="link-light" [href]="globals.messageLink">
+          <button data-dismiss="modal" mdbBtn type="button" color="amber" mdbWavesEffect>{{'home.Accept'|translate}}</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
