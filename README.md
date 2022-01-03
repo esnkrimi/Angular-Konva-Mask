@@ -39,6 +39,16 @@ for example - english.json
             "isSelected":"is selected" 
         }
     }    
+and for spanish :
+
+     { 
+         "home":{ 
+             "Id":"1",
+             "language":"Spanish",
+             "HelloWorld":"Hola Mundo",
+             "isSelected":"está seleccionado" 
+         }
+     }   
     
 <b>you can run npm run extract for initilization files    </b>
 
