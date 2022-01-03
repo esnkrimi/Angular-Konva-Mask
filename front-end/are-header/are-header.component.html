@@ -1,0 +1,114 @@
+<div
+id="TopBanner" class="gold-bg" >
+  <div class="flex-center d-flex p-1 w-100" style="width: 100%;">
+ <div class="p-1" [class.opacity-50]="globals.language!=='ar'" 
+ [class.opacity-100]="globals.language==='ar'"  [class.basis-10]="!globals.devicePc" style="flex-basis: 4%;" (click)="globals.language='ar';changeLanguage(globals.language)">
+    <a  [routerLink]="['/home/language','ar' ]">
+        <img src="/img/icon/ar.jpg" class="w-100">
+    </a>
+    </div>  
+    <div class="p-1"  [class.opacity-50]="globals.language!=='en'" 
+    [class.opacity-100]="globals.language==='en'"  [class.basis-10]="!globals.devicePc"  style="flex-basis: 4%;" (click)="globals.language='irr';changeLanguage(globals.language)">
+      <a  [routerLink]="['/home/language','en' ]">
+        <img src="/img/icon/en.jpg" class="w-100">
+      </a> 
+    </div> 
+    <div class="p-1"  [class.opacity-50]="globals.language!=='fa'" 
+    [class.opacity-100]="globals.language==='fa'"  [class.basis-10]="!globals.devicePc"  style="flex-basis: 4%;" (click)="globals.language='irr';changeLanguage(globals.language)">
+      <a  [routerLink]="['/home/language','fa' ]">
+        <img src="/img/icon/fa.jpg" class="w-100">
+      </a>
+    </div>     
+    <div  style="flex-basis: 72%;" class="link-light text-center small">
+      <span *ngIf= "globals.devicePc">
+        {{'home.freeShip'|translate}}        
+      </span>
+    </div>
+    <div class="small pl-2"  [class.basis-10]="!globals.devicePc" style="flex-basis: 3%;">
+      <a href="https://www.instagram.com/burjcrown.com/" target="_blank">
+        <i class="opacity-75 fab fa-instagram fa-1x text-white " ></i>
+      </a>
+    </div> 
+    <div class="small pl-2"  [class.basis-10]="!globals.devicePc" style="flex-basis: 3%;">
+      <a href="https://www.t.me/burjcrown.com/" target="_blank">
+        <i class="opacity-75 fab fa-telegram fa-1x text-white "></i>
+        </a> 
+    </div>
+    <div class="small pl-2"  [class.basis-10]="!globals.devicePc" style="flex-basis: 3%;">
+      <a href="https://www.youtube.com/channel/UCI64X57SWzrim7pjYg73SrQ" target="_blank">
+        <i class="opacity-75  fab fa-youtube fa-1x text-white "></i>
+        </a>
+    </div>
+  <div style="flex-basis: 5%;">
+  </div>
+  </div>
+</div> 
+<div class="bg-black w-100 text-center">
+<div  class="w-100 inline-block ">
+<div
+[class.fixed-top]="
+!globals.masterAction &&
+globals.fixedHeader &&
+(globals.unhyperAction!=='zoom')
+">
+  <div class="d-flex p-1 w-100 bg-black">
+    <div *ngIf= "globals.devicePc" class="text-center text-black p-2 " style="flex-basis: 35%">  
+      <app-product-search (searchWord)="searchWordFunction($event)"> </app-product-search>
+    </div>
+     <div  [class.w-50]="globals.devicePc" [class.w-100]="!globals.devicePc" [class.text-left]="!globals.devicePc" class="text-center text-black p-2" >  
+      <a id="carpet" [class.xxx-large]="globals.devicePc" 
+      class="logo text-center" href=" /">
+      Burj Crown
+      </a> 
+     </div>
+    <div class="text-center text-black p-2 "  style="flex-basis: 20%">  
+    <div class="d-flex p-1 w-100" *ngIf= "globals.loginedUser">
+      <div class="text-center text-black p-2"  style="flex-basis: 25%">  
+        <a [routerLink]="['/home', 'wishlist' ]">
+        <i  (click)="globals.unhyperAction='wishlist'"  class="fas fa-heart text-white "></i>
+        </a>
+      </div>
+      <div class="text-center text-black p-2"  style="flex-basis: 25%">  
+        <a  [routerLink]="['/home', 'shop-card' ]">
+        <i  (click)="globals.unhyperAction='shop-card';"  [matBadge]="globals.BasketCount.toString()" matBadgeColor="accent"   class="fas fa-shopping-cart text-white " 
+        ></i>     
+      </a>
+      </div>
+        
+      <div class="text-center text-black p-2"  style="flex-basis: 25%">  
+        <i   (click)="drawerToggle()" class="fas fa-user text-white  cursor-pointer" aria-hidden="true"></i>
+      </div>            
+    </div>
+    <div class="d-flex p-1 w-100  text-right" *ngIf= "!globals.loginedUser">
+      <div class="text-center text-black p-2 "  style="flex-basis: 33%">  
+        <a [routerLink]="['/home', 'signin' ]">
+        <i    class="fas fa-heart text-white "></i>
+      </a>
+      </div>
+      <div class="text-center text-black p-2"  style="flex-basis: 34%">  
+        <a [routerLink]="['/home', 'signin' ]">
+        <i   [matBadge]="'0'" matBadgeColor="accent"   class="fas fa-shopping-cart text-white " ></i>     
+        </a>
+      </div>
+        
+      <div class="text-center text-black p-2"  style="flex-basis: 33%">  
+        <a [routerLink]="['/home', 'signin' ]">
+        <i class="cursor-pointer"  class="fas fa-user text-white " aria-hidden="true"></i>
+        </a>
+      </div>            
+    </div>
+
+
+     </div>
+  </div>
+  <div *ngIf= "!globals.devicePc">  
+    <app-product-search (searchWord)="searchWordFunction($event)"> </app-product-search>
+  </div>
+<div *ngIf= "globals.devicePc" class="w-100 bg-black text-left">
+  <app-panel-horizontal-menu></app-panel-horizontal-menu>
+
+</div>  
+</div>  
+
+</div>
+</div>

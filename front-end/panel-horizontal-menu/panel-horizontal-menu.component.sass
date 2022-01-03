@@ -1,0 +1,27 @@
+@import "../../styles.sass"
+$gold:#f56421  
+.megamenu 
+    position: static
+
+.dropdown-toggle
+    color: white !important    
+.megamenu .dropdown-menu 
+    background: none
+    border: none
+    width: 100%
+body 
+    background: #eaafc8
+    background: -webkit-linear-gradient(to right, #eaafc8, #654ea3)
+    background: linear-gradient(to right, #eaafc8, #654ea3)
+    min-height: 100vh
+a
+    color: white !important
+    cursor: pointer
+h6
+    color: #868383 !important
+
+a:hover
+  color: $gold !important
+  font-weight: 900
+.selected-text
+  @include text($gold,1em,"tahoma","center","900")  

@@ -1,0 +1,180 @@
+<mat-drawer-container
+style="background-color: white !important;"
+[hasBackdrop]="'True'">
+<mat-drawer-content>
+<div id="adv">
+
+</div>
+<div id="header">
+    <app-are-header  (drawerToggleToHome)="drawerToggleToHome()"></app-are-header>
+</div>
+<div id="menu">
+
+</div>
+
+<div *ngIf= "actionFromUrl==='contact'" class="lower-width w-100 text-center">
+ 
+<div class="d-inline-block">
+  <div>
+  <div class="fw-bold p-2"  [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'">
+  </div> 
+   <div class="w-100"[class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'">
+     <img [src]="globals.UrlHome+'/img/contact.jpg'" class="w-100">
+   </div>
+          <div  class="text-center text-black p-2 logo" >  
+            Burj Crown
+           </div>
+      <hr>
+      <div class="d-flex p-1 w-100">
+        <div class="text-left fw-bold" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'">
+          {{'home.ourAddress'|translate}}                
+        </div>
+      </div>
+          <div class="d-flex p-1 w-100">
+            <div  style="flex-basis: 100%;" >
+              <div class="d-flex p-1 w-100" [class.flex-row-reverse]="globals.language!=='en'">
+                <div style="flex-basis: 50%;" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'" class="text-left fw-bold">  
+                  {{'home.ourMobile'|translate}}                                
+                </div>
+                <div style="flex-basis: 50%;"[class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'" class="text-left fw-bold">                                 
+                  +989188108019
+               </div>
+             </div>             
+                 <div class="d-flex p-1 w-100" [class.flex-row-reverse]="globals.language!=='en'">
+                    <div style="flex-basis: 50%;"  [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'"class="text-left fw-bold">  
+                      {{'home.ourEmail'|translate}}                                
+                    </div>
+                    <div style="flex-basis: 50%;" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'"class="text-left fw-bold">                                 
+                      BurjCrown.Com@Gmail.com
+                   </div>
+                 </div>
+                   <div class="d-flex p-1 w-100" [class.flex-row-reverse]="globals.language!=='en'">
+                     <div style="flex-basis: 50%;" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'"class="text-left fw-bold">                                 
+                       WhatsApp
+                     </div>
+                     <div style="flex-basis: 50%;" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'"class="text-left fw-bold">                                 
+                      +989188108019
+                    </div>
+                  </div>
+                  <div class="d-flex p-1 w-100" [class.flex-row-reverse]="globals.language!=='en'">
+                    <div style="flex-basis: 50%;" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'"class="text-left fw-bold">                                 
+                      Instagram
+                    </div>
+                    <div style="flex-basis: 50%;" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'"class="text-left fw-bold">                                 
+                     burj.crown
+                   </div>
+                 </div>
+                 <br>
+                 <div class="text-left fw-bold" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'">
+                  {{'home.ourTitleContact'|translate}} 
+
+               </div>
+               <div class="text-left fw-bold" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'">
+                {{'home.ourContentContact'|translate}} 
+               </div>
+          </div>
+       </div>
+</div>   
+</div>
+</div>
+<div *ngIf= "actionFromUrl==='brands'">
+  <br>
+  <div>
+    <div *ngFor= "let item of content" class="cursor-pointer" >
+      <a  [routerLink]="['/home','brand',item.brand ]">
+      <div class="text-left small text-button fw-bold p-2">
+        {{item.brand|uppercase}}
+      </div>
+    </a>
+    </div>
+  </div>
+</div>
+<div *ngIf= "actionFromUrl!=='brands'" >
+<div id="slideshow" >
+    <slideshow 
+    [backgroundPosition]="'center center'"
+    [backgroundRepeat]="'no-repeat'"
+    [height]="'auto'"
+    [minHeight]="slideShowHeight"
+    [autoPlay]="false"
+    [showArrows]="true"
+    [imageUrls]="imgobjc"
+    [autoPlayWaitForLazyLoad]="true">
+    </slideshow> 
+</div>
+<div id="adv-one text-center">
+  <a  [routerLink]="['/home','campaign', '1' ]">
+    <img class="w-100" [src]="globals.UrlHome+'/img/banner_top.gif'">
+  </a>
+</div>
+<div class="w-100" id="WHAT'S NEW">
+</div>
+<div class="background-fix"><br>
+
+  <div id="adv-one" class="row">
+    <div class="col-md-6 p-2">
+      <a  [routerLink]="['/home', 'size','100ml' ]">
+        <img width="100%" class="w-100" [src]="globals.UrlHome+'/img/size100.jpg'">
+        </a>
+      </div>
+      <div class="col-md-6 p-2 borde-4">
+        <a  [routerLink]="['/home', 'size','tester' ]">
+          <img width="100%" class="w-100 " [src]="globals.UrlHome+'/img/tester.jpg'">
+        </a>
+      </div>
+</div>
+<div id="best-seller" class="w-100 text-center bg-white"> 
+ <div  style="display: inline-block">
+    <app-product-carosel [sort]="'do_id desc'"  [title]="'home.whatIsNew'|translate"></app-product-carosel>
+  </div>  
+
+</div>
+<div id="best-seller" class="w-100 text-center bg-white">  
+  <div  class="d-inline-block">
+    <app-product-carosel [sort]="'do_look desc'" [title]="'home.bestSellers'|translate"></app-product-carosel>
+</div>
+</div>
+<div id="adv-one" class="row">
+    <div class="col-md-6 p-2">
+        <a  [routerLink]="['/home', 'sex','MEN' ]">
+        <img width="100%" class="w-100" [src]="globals.UrlHome+'/img/men.jpg'">
+        </a>
+      </div>
+      <div class="col-md-6 p-2">
+        <a  [routerLink]="['/home','sex', 'WOMEN' ]">
+        <img width="100%" class="w-100" [src]="globals.UrlHome+'/img/women.jpg'">
+        </a>
+      </div>
+</div>
+
+</div>
+<div id="brands">
+  <div>
+    <!--
+    <app-product-carosel [title]="'BRANDS'"></app-product-carosel>
+    -->
+</div>
+</div>
+<br>
+<div id="gift-back">
+  <a  [routerLink]="['/product','2' ]">
+    <img [src]="globals.UrlHome+'/img/banner_sug.jpg'" class="w-100">
+  </a>
+</div>
+<div id="best-seller" class="w-100 text-center bg-white"> 
+  <div  class="d-inline-block">
+    <app-product-carosel [sort]="'do_certificate desc'" [title]="'home.offers'|translate"></app-product-carosel>
+</div>
+</div>
+
+</div>
+
+<div id="footer">
+    <app-are-footer></app-are-footer>
+</div>
+</mat-drawer-content>
+<mat-drawer  class="bg-black" [class.w-75]="!globals.devicePc" 
+[class.w-25]="globals.devicePc" #drawer [mode]="'over'" > 
+<app-user-menu (click)="drawer.toggle();"></app-user-menu>                 
+</mat-drawer>
+</mat-drawer-container>   

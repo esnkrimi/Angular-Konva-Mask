@@ -1,0 +1,28 @@
+<div class="text-left" *ngIf= "globals.wishlistUpdateList">
+  <button (click)="userWishLists();" mat-stroked-button color="warn">Update List</button>
+</div>
+<div *ngIf= "multiColumn" class="row p-1" >
+      <div class="col-lg-3 col-sm-6 mb-5  product" 
+       [class.col-lg-3]="multiColumn" 
+       [class.col-sm-6]="multiColumn" 
+       [class.mb-5]="multiColumn" 
+       *ngFor= "let item of content| paginate: {itemsPerPage: 16, currentPage: p};let i=index">
+          <div *ngIf= "item">
+            <app-product-thumbnail  [product]="item" showType="multiColumn"></app-product-thumbnail>
+          </div>
+          <div *ngIf= "!item" class="text-left">
+            <br>
+            <img [src]="globals.UrlHome+'/img/wishlist.png'" class="w-25 opacity-50">
+          </div>
+            
+      </div>
+
+      <div *ngIf= "!content.length" class="text-muted xx-large">
+        <br>
+        <img [src]="globals.UrlHome+'/img/wishlist.png'" class="w-25 opacity-50">
+        <br>
+        {{'home.wishlistEmpty'|translate}}
+      </div>  
+      </div> 
+ 
+     

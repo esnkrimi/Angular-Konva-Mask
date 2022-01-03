@@ -1,0 +1,39 @@
+<div class="card bg-white w-50" style="background-color:white !important;">
+    <div class="card-body px-lg-5 pt-0 bg-white" style="background-color:white !important;">
+        <form 
+        [formGroup]="checkoutForm"
+        (ngSubmit)="editProfile()" class="text-center text-muted "  
+          action="#!">
+          <p class="text-left large text-black"  [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'">
+            {{content[0].user_mobile}}
+          </p>
+          <p class="text-left large text-black"  [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'">
+            {{content[0].user_email|titlecase}}
+          </p>
+         <p class="text-left large"  [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'">
+          {{'home.name'|translate}} 
+          </p>
+         <div class="md-form mt-0">
+            <input [(ngModel)]="content[0].user_name"  formControlName="Name"class="form-control">
+        </div>
+            <p class="text-left large" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'" >
+                {{'home.password'|translate}} 
+
+              </p>
+            <div class="md-form mt-0">
+                <input type="password" [(ngModel)]="content[0].user_pass" formControlName="Password"class="form-control">
+            </div>            
+
+            <p class="text-left large" [class.text-right]="globals.language!=='en'"  [class.text-left]="globals.language==='en'">
+              {{'home.address'|translate}} 
+
+            </p>
+            <div class="md-form mt-0">
+              <angular-editor formControlName="comment"  [(ngModel)]="content[0].user_adrs"
+               class="form-control" id="comment" name="comment" [config]="editorConfig"></angular-editor>
+          </div>
+            <hr>
+              <input type="submit" [value]="'home.Accept'|translate">
+        </form>
+    </div>
+</div> 

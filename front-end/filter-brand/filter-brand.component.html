@@ -1,0 +1,30 @@
+<div  [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'" class="w-100 p-1">
+<div class="fw-bold small">
+        {{'home.brand'|translate}}
+</div>
+<div class="w-100 text-left"  [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'">
+    <input  [ngModel]="firstChar" (ngModelChange)="changeFirstCharachter($event)"  type="text" id="first-char" name="first-char"  class="input-border-bottom" >    
+</div>    
+    <div  (click)="brandChangedFunction(item.brand)" *ngFor= "let item of brandList;let i=index">
+    <div  class="d-flex p-1 w-100" *ngIf= "(i<len)">
+        <div style="flex-basis:90%">   
+           <div class="cursor-pointer text-left text-button text-uppercase"  
+           [class.text-left]="globals.language==='en'" [class.text-right]="globals.language!=='en'">
+            {{item.brand}}
+           </div>
+       </div>
+        <div style="flex-basis:10%" > 
+            <mat-checkbox class="checkbox-Filter"
+            [disabled]="true"
+            [(ngModel)]="item.brand===globals.brandFiltered">
+            </mat-checkbox> 
+         </div>
+    </div> 
+    </div> 
+    <p *ngIf= "len>10" class="cursor-pointer small text-center text-muted"  (click)="len=10">
+        {{'home.hide'|translate}}
+    </p>
+    <p *ngIf= "len===10 && (brandList.length>5)"  class="cursor-pointer small text-center text-muted" (click)="len=100">
+        {{'home.show'|translate}}
+    </p>
+</div>
