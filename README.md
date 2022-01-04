@@ -1,5 +1,5 @@
 # AngularKonvaMask
-Angular - make a mask intensity onimage with <b>KonvaJs</b><br><br>
+Angular - Make a mask intensity onimage with <b>KonvaJs</b><br><br>
 
 
 
